@@ -51,7 +51,7 @@
 </header>
 
 <footer>
-  © 2026 Sons of Unity • sonsofunity.com
+  © 2026 Sons of Unity • www.sonsofunity.com
 </footer>
 
 </body>
