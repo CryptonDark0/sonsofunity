@@ -4,51 +4,44 @@
   <meta charset="UTF-8">
   <title>Sons of Unity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      text-align: center;
-    }
-    header {
-      padding: 80px 20px;
-    }
-    h1 {
-      color: #c9a24d;
-      font-size: 42px;
-    }
-    p {
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 30px;
-      border: 2px solid #c9a24d;
-      color: #c9a24d;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      margin-top: 80px;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header>
-  <h1>Sons of Unity</h1>
-  <p>One Brotherhood. One World. One Unity.</p>
-  <p>A global movement building unity, purpose, and service.</p>
-  <a href="#" class="button">Join the Movement</a>
+  <h1>SONS OF UNITY</h1>
+  <p>One Brotherhood. One World. One Unity</p>
+  <p>A global movement building purpose, strength, and service.</p>
+  <a href="#join" class="button">Join the Movement</a>
 </header>
+
+<section>
+  <h2>Our Core Values</h2>
+  <div class="values">
+    <div class="value-box">
+      <h3>Unity</h3>
+      <p>Standing together beyond borders, beliefs, and backgrounds.</p>
+    </div>
+    <div class="value-box">
+      <h3>Brotherhood</h3>
+      <p>A strong global family built on trust and respect.</p>
+    </div>
+    <div class="value-box">
+      <h3>Service</h3>
+      <p>Giving back to communities and those in need.</p>
+    </div>
+    <div class="value-box">
+      <h3>Growth</h3>
+      <p>Personal, collective, and global development.</p>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <h2>Join the Movement</h2>
+  <p>Become a part of a global brotherhood and make a difference today.</p>
+  <a href="#" class="button">Join Us</a>
+</section>
 
 <footer>
   © 2026 Sons of Unity • www.sonsofunity.com
