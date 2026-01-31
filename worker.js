@@ -1,0 +1,70 @@
+export default {
+  async fetch(request, env) {
+    return new Response(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sons of Unity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      text-align: center;
+    }
+    header {
+      padding: 80px 20px;
+    }
+    h1 {
+      color: #c9a24d;
+      font-size: 42px;
+      letter-spacing: 2px;
+    }
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 32px;
+      border: 2px solid #c9a24d;
+      color: #c9a24d;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    footer {
+      margin-top: 80px;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SONS OF UNITY</h1>
+  <p><strong>One Brotherhood. One World. One Unity.</strong></p>
+  <p>
+    Sons of Unity is a global movement built on unity, purpose, and service.
+    We believe in people, peace, and a united future.
+  </p>
+  <a href="#" class="button">Join the Movement</a>
+</header>
+
+<footer>
+  © 2026 Sons of Unity • www.sonsofunity.com
+</footer>
+
+</body>
+</html>`, {
+      headers: { "content-type": "text/html;charset=UTF-8" },
+    })
+  }
+}
