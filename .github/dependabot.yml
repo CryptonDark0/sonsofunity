@@ -1,0 +1,49 @@
+version: 2
+updates:
+  # ---------------------------------------------------------
+  # 1. Keep GitHub Actions up to date
+  # ---------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # ---------------------------------------------------------
+  # 2. Node.js dependencies (if you add package.json later)
+  # ---------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    allow:
+      - dependency-type: "direct"
+
+  # ---------------------------------------------------------
+  # 3. Docker (future-proofing)
+  # ---------------------------------------------------------
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "docker"
+      include: "scope"
+
+  # ---------------------------------------------------------
+  # 4. Security updates (always recommended)
+  # ---------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-type: "direct"
+    open-pull-requests-limit: 5
+    labels:
+      - "security"
