@@ -24,6 +24,7 @@ header h1 {
     letter-spacing: 2px;
     color: #c9a24d;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 /* Subtitle */
@@ -70,25 +71,41 @@ section {
     border-radius: 10px;
     width: 250px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.value-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(201, 162, 77, 0.5);
 }
 
-/* Social Icons */
+/* Social Icon Buttons */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: 30px;
 }
 
-.social-icons a img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s, filter 0.3s;
+/* Individual social button */
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7289da; /* Discord blue */
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
-.social-icons a:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.2);
+/* Hover effect */
+.social-btn:hover {
+    transform: scale(1.2);
+    background-color: #5b6eae;
 }
 
 /* Footer */
@@ -108,6 +125,6 @@ footer {
     }
 
     .social-icons {
-        gap: 15px;
+        gap: 10px;
     }
 }
