@@ -99,7 +99,8 @@ All rights reserved.
 
 ## 📬 Contact
 
-For partnerships, collaboration, or inquiries:  
+For partnerships, collaboration, or inquiries:
+📧 security@sonsofunity.com
 📧 contact@sonsofunity.com  
 🌐 https://sonsofunity.com
 
