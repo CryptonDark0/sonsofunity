@@ -1,0 +1,6 @@
+Contact: mailto:security@sonsofunity.com
+Contact: https://github.com/CryptonDark0/sonsofunity/issues
+Policy: https://github.com/CryptonDark0/sonsofunity/security/policy
+Canonical: https://sonsofunity.com/.well-known/security.txt
+Preferred-Languages: en
+Expires: 2031-12-31T23:59:00.000Z
