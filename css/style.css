@@ -82,19 +82,19 @@ section {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 25px;        /* increased spacing between buttons */
     margin-top: 30px;
 }
 
 /* Individual social button */
 .social-btn {
-    width: 45px;
-    height: 45px;
+    width: 55px;      /* slightly larger for clarity */
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #7289da; /* Discord blue */
+    background-color: #7289da; /* default Discord blue */
     color: #fff;
     font-weight: bold;
     text-decoration: none;
@@ -125,6 +125,6 @@ footer {
     }
 
     .social-icons {
-        gap: 10px;
+        gap: 15px;   /* slightly smaller spacing on mobile */
     }
 }
