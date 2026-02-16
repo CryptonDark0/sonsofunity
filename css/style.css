@@ -82,14 +82,14 @@ section {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 25px;        /* increased spacing between buttons */
-    margin-top: 30px;
+    gap: 70px;        /* EXTRA spacing between buttons */
+    margin-top: 50px; /* more space above the row */
 }
 
 /* Individual social button */
 .social-btn {
-    width: 55px;      /* slightly larger for clarity */
-    height: 55px;
+    width: 65px;      /* larger circle for clarity */
+    height: 65px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -98,14 +98,14 @@ section {
     color: #fff;
     font-weight: bold;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     transition: transform 0.3s, background-color 0.3s;
 }
 
 /* Hover effect */
 .social-btn:hover {
     transform: scale(1.2);
-    background-color: #5b6eae;
+    filter: brightness(1.2);
 }
 
 /* Footer */
@@ -125,6 +125,7 @@ footer {
     }
 
     .social-icons {
-        gap: 15px;   /* slightly smaller spacing on mobile */
+        gap: 35px;   /* smaller spacing on mobile */
+        margin-top: 30px;
     }
 }
