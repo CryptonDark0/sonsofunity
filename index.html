@@ -9,10 +9,14 @@
   <meta name="keywords" content="Sons of Unity, global brotherhood, unity, charity, community" />
   <meta name="author" content="Sons of Unity" />
 
-  <!-- Open Graph / Social -->
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- Open Graph / Social (Updated with HD Logo) -->
   <meta property="og:title" content="Sons of Unity | One Brotherhood. One World." />
   <meta property="og:description" content="A global movement uniting people through brotherhood, service, and purpose." />
-  <meta property="og:image" content="https://sonsofunity.com/images/logo.png" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/CryptonDark0/sonsofunity/main/images/souww%20512.png" />
   <meta property="og:url" content="https://sonsofunity.com" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -20,22 +24,484 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* --- CSS CUSTOM PROPERTIES (FUTUREPROOF THEMING) --- */
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #0a0a0a;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --accent-gold: #D4AF37;
+      --accent-gold-light: #f3e5ab;
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-hover: rgba(212, 175, 55, 0.1);
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5843123801720791"
-     crossorigin="anonymous"></script>
+    /* --- RESET & BASE --- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-gold) var(--bg-primary);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    
+    /* --- ANIMATED BACKGROUND MESH --- */
+    .bg-mesh {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(at 40% 20%, hsla(228,68%,20%,0.3) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,0.1) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355,100%,93%,0.05) 0px, transparent 50%),
+        var(--bg-primary);
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      background: rgba(5, 5, 5, 0.6);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--accent-gold);
+    }
+
+    .nav-logo img {
+      height: 40px; /* Uses the 64x64 image scaled down perfectly */
+      width: 40px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    /* Hero Logo Styling (Uses 512x512 HD Image) */
+    .logo {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.3));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      line-height: 0.9;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--accent-gold-light);
+      margin-bottom: 20px;
+      letter-spacing: 0.1em;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .est {
+      font-size: 0.85rem;
+      color: #555;
+      letter-spacing: 0.2em;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    /* --- BUTTONS --- */
+    .cta-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+    }
+
+    .primary {
+      background: var(--accent-gold);
+      color: #000;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+      background: var(--accent-gold-light);
+    }
+
+    .outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    /* --- ORIGINAL SOCIAL BUTTONS --- */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: all var(--transition);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* --- AD SPACES --- */
+    .ad-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.2);
+      border: 1px dashed rgba(255,255,255,0.05);
+      text-align: center;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      padding: 120px 5%;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .accent-line {
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gold);
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    /* --- VALUES GRID --- */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .value-box {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 40px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .value-box:hover {
+      background: var(--glass-hover);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .value-box:hover::before { opacity: 1; }
+
+    .value-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--accent-gold);
+    }
+
+    .value-box p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* --- CONTACT FORM --- */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      padding: 50px;
+      border-radius: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      padding: 60px 5%;
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      background: #000;
+    }
+
+    .footer-socials {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .footer-socials .social-btn {
+      font-size: 0.7rem;
+      padding: 8px 20px;
+    }
+
+    footer p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    footer p a {
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    footer p a:hover { color: var(--accent-gold); }
+
+    /* --- SCROLL ANIMATIONS --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .contact-form { padding: 30px; }
+      section { padding: 80px 5%; }
+      .social-icons { gap: 10px; }
+      .social-btn { padding: 8px 16px; font-size: 0.7rem; }
+      .logo { width: 140px; height: 140px; }
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- Futuristic Background Mesh -->
+  <div class="bg-mesh"></div>
+
+  <!-- SECURE & STICKY NAVIGATION -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <!-- 64x64 Logo for fast loading in navbar -->
+      <img src="https://raw.githubusercontent.com/CryptonDark0/sonsofunity/main/images/logo%2064.png" alt="Sons of Unity Logo">
+      Sons of Unity
+    </a>
+    <div class="nav-links">
+      <a href="#about">Who We Are</a>
+      <a href="#values">Values</a>
+      <a href="#join">Join</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
   <!-- HERO SECTION -->
   <header class="hero">
-    <div class="overlay">
-      <img src="images/logo.png" alt="Sons of Unity Logo" class="logo" />
+    <div class="hero-content">
+      <!-- 512x512 HD Logo for Hero Section -->
+      <img src="https://raw.githubusercontent.com/CryptonDark0/sonsofunity/main/images/souww%20512.png" alt="Sons of Unity Logo" class="logo" />
 
       <h1>SONS OF UNITY</h1>
       <p class="tagline">One Brotherhood. One World. One Unity.</p>
@@ -50,23 +516,23 @@
       <!-- CTA BUTTONS -->
       <div class="cta-group">
         <a href="#join" class="button primary">Join the Movement</a>
-        <a href="https://discord.gg/z7JFNyXXEA" target="_blank" class="button outline">Enter Discord</a>
+        <a href="https://discord.gg/z7JFNyXXEA" target="_blank" rel="noopener noreferrer" class="button outline">Enter Discord</a>
       </div>
 
       <!-- SOCIAL BUTTONS -->
       <div class="social-icons">
-        <a href="https://discord.gg/z7JFNyXXEA" target="_blank" class="social-btn" aria-label="Discord">Discord</a>
-        <a href="https://www.facebook.com/profile.php?id=61587510050801" target="_blank" class="social-btn" style="background:#1877f2" aria-label="Facebook">Facebook</a>
-        <a href="https://www.instagram.com/sonsofunity8" target="_blank" class="social-btn" style="background:#e4405f" aria-label="Instagram">Instagram</a>
-        <a href="https://twitter.com/YOURPAGE" target="_blank" class="social-btn" style="background:#1da1f2" aria-label="X / Twitter">X / Twitter</a>
-        <a href="https://www.tiktok.com/@sonsofunity" target="_blank" class="social-btn" style="background:#000000" aria-label="TikTok">TikTok</a>
-        <a href="https://t.me/YOURPAGE" target="_blank" class="social-btn" style="background:#0088cc" aria-label="Telegram">TG</a>
+        <a href="https://discord.gg/z7JFNyXXEA" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Discord">Discord</a>
+        <a href="https://www.facebook.com/profile.php?id=61587510050801" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(24,119,242,0.2); border-color:rgba(24,119,242,0.4);" aria-label="Facebook">Facebook</a>
+        <a href="https://www.instagram.com/sonsofunity8" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(228,64,95,0.2); border-color:rgba(228,64,95,0.4);" aria-label="Instagram">Instagram</a>
+        <a href="https://twitter.com/YOURPAGE" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(29,161,242,0.2); border-color:rgba(29,161,242,0.4);" aria-label="X / Twitter">X / Twitter</a>
+        <a href="https://www.tiktok.com/@sonsofunity" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.3);" aria-label="TikTok">TikTok</a>
+        <a href="https://t.me/YOURPAGE" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(0,136,204,0.2); border-color:rgba(0,136,204,0.4);" aria-label="Telegram">TG</a>
       </div>
     </div>
   </header>
 
   <!-- Example Ad Unit Below Hero -->
-  <div style="text-align:center; margin:20px 0;">
+  <div class="ad-container" style="margin: 20px 0 40px 0;">
     <!-- Sons of Unity AdSense -->
     <ins class="adsbygoogle"
          style="display:block"
@@ -80,35 +546,41 @@
   </div>
 
   <!-- ABOUT SECTION -->
-  <section class="section dark">
-    <h2>Who We Are</h2>
-    <p>
-      Sons of Unity is a worldwide brotherhood bringing people together beyond
-      borders, backgrounds, and beliefs. We stand for unity, respect, and action.
-    </p>
+  <section id="about">
+    <div class="section-header reveal">
+      <h2>Who We Are</h2>
+      <div class="accent-line"></div>
+      <p>
+        Sons of Unity is a worldwide brotherhood bringing people together beyond
+        borders, backgrounds, and beliefs. We stand for unity, respect, and action.
+      </p>
+    </div>
   </section>
 
   <!-- VALUES SECTION -->
-  <section class="section">
-    <h2>Our Core Values</h2>
+  <section id="values" style="background: var(--bg-secondary);">
+    <div class="section-header reveal">
+      <h2>Our Core Values</h2>
+      <div class="accent-line"></div>
+    </div>
 
     <div class="values">
-      <div class="value-box">
+      <div class="value-box reveal">
         <h3>Unity</h3>
         <p>We believe true strength comes from standing together.</p>
       </div>
 
-      <div class="value-box">
+      <div class="value-box reveal">
         <h3>Brotherhood</h3>
         <p>A global family built on trust, loyalty, and respect.</p>
       </div>
 
-      <div class="value-box">
+      <div class="value-box reveal">
         <h3>Service</h3>
         <p>Giving back to communities and those in need worldwide.</p>
       </div>
 
-      <div class="value-box">
+      <div class="value-box reveal">
         <h3>Growth</h3>
         <p>Personal, collective, and global development.</p>
       </div>
@@ -116,7 +588,7 @@
   </section>
 
   <!-- Example Ad Unit Between Sections -->
-  <div style="text-align:center; margin:20px 0;">
+  <div class="ad-container" style="margin: 40px auto;">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-5843123801720791"
@@ -129,25 +601,35 @@
   </div>
 
   <!-- JOIN SECTION -->
-  <section class="section dark" id="join">
-    <h2>Join the Movement</h2>
-    <p>Become part of a global brotherhood shaping a united future.</p>
+  <section id="join">
+    <div class="section-header reveal">
+      <h2>Join the Movement</h2>
+      <div class="accent-line"></div>
+      <p>Become part of a global brotherhood shaping a united future.</p>
 
-    <div class="cta-group">
-      <a href="https://discord.gg/z7JFNyXXEA" target="_blank" class="button primary">Join Discord</a>
-      <a href="mailto:contact@sonsofunity.com" class="button outline">Email Us</a>
+      <div class="cta-group" style="margin-top: 40px;">
+        <a href="https://discord.gg/z7JFNyXXEA" target="_blank" rel="noopener noreferrer" class="button primary">Join Discord</a>
+        <a href="mailto:contact@sonsofunity.com" class="button outline">Email Us</a>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT FORM -->
-  <section class="section">
-    <h2>Contact Sons of Unity</h2>
+  <section id="contact" style="background: var(--bg-secondary);">
+    <div class="section-header reveal">
+      <h2>Contact Sons of Unity</h2>
+      <div class="accent-line"></div>
+    </div>
 
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form reveal">
+      <!-- SECURITY: Honeypot field to block spam bots -->
+      <input type="hidden" name="_subject" value="New Contact from Sons of Unity Website">
+      <input type="text" name="_gotcha" style="display:none">
+      
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="button primary">Send Message</button>
+      <button type="submit" class="button primary" style="width: 100%; justify-content: center;">Send Message</button>
     </form>
   </section>
 
@@ -156,9 +638,9 @@
     <p>© 2026 Sons of Unity • All Rights Reserved</p>
 
     <div class="footer-socials">
-      <a href="https://discord.gg/E8F2Abpn" target="_blank" class="social-btn" style="margin-right:10px;">Discord</a>
-      <a href="https://www.facebook.com/profile.php?id=61587510050801" target="_blank" class="social-btn" style="background:#1877f2; margin-right:10px;">Facebook</a>
-      <a href="mailto:contact@sonsofunity.com" class="social-btn" style="background:#555;">Email</a>
+      <a href="https://discord.gg/E8F2Abpn" target="_blank" rel="noopener noreferrer" class="social-btn">Discord</a>
+      <a href="https://www.facebook.com/profile.php?id=61587510050801" target="_blank" rel="noopener noreferrer" class="social-btn" style="background:rgba(24,119,242,0.2); border-color:rgba(24,119,242,0.4);">Facebook</a>
+      <a href="mailto:contact@sonsofunity.com" class="social-btn" style="background:rgba(85,85,85,0.2); border-color:rgba(85,85,85,0.4);">Email</a>
     </div>
 
     <p>
@@ -167,5 +649,23 @@
     </p>
   </footer>
 
+  <!-- INTERACTION LOGIC -->
+  <script>
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
